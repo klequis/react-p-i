@@ -10,13 +10,17 @@ const codeStyle = {
   textAlign: 'left'
 }
 
+const apiRoot = (apiEnv) => {
+  return apiEnv = 'production' ? 'https://klequis-todo.tk' : 'http://localhost:3030'
+}
+
 function App() {
   const [data, setData] = useState()
   const [apiStatus, setApiStatus] = useState('')
 
   useEffect(() => {
     const getData = async () => {
-      const r1 = await fetch('http://localhost:3030/ping', { headers })
+      const r1 = await fetch(`${apiRoot('production')}/ping`, { headers })
       const status = `${r1.status} - ${r1.statusText}`
       console.log(status)
       setApiStatus(status)
