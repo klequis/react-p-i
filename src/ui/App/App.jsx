@@ -20,8 +20,8 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const r1 = await fetch(`${apiRoot('production')}/ping`, { headers })
-      const status = `${r1.status} - ${r1.statusText}`
+      const r1 = await fetch(`${apiRoot('production')}`, { headers })
+      // const status = `${r1.status} - ${r1.statusText}`
       console.log(status)
       setApiStatus(status)
       console.log('r1', r1)
